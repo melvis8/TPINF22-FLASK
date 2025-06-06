@@ -68,8 +68,18 @@ Start the application
 ```bash
   npm install
 ```
+- creating a virtual environment for flask
+```bash
+    python -m venv .venv
+    source .venv/bin/activate 
+```
 
-- Create Database
+- run project locally with this command
+
+```bash
+    PYTHONPATH=. python3 app/run.py
+```
+- create Database
 
 ```bash
   sudo -u postgres psql
