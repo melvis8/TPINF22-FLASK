@@ -70,7 +70,7 @@ Start the application
 ```
 - creating a virtual environment for flask
 ```bash
-    python -m venv .venv
+    python3 -m venv .venv
     source .venv/bin/activate 
 ```
 
@@ -221,6 +221,12 @@ flask db upgrade
 ```
  ## AI Disease Prediction
  The system includes a machine learning model that predicts diseases based on patient symptoms.
+
+ - Discuss with Gemini AI
+ 
+ ```http 
+ POST http://localhost:5000/ai/gemini
+```  
 
  ### How it works:
 -  Symptom Input: Doctors input patient symptoms
