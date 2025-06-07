@@ -1,6 +1,6 @@
 from flask import Blueprint, request, jsonify, abort
 from app.models.prescription import Prescription
-from app import db
+from app.extensions import db
 
 prescription_bp = Blueprint('prescriptions', __name__)
 

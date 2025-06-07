@@ -63,11 +63,6 @@ Start the application
 
 ## Manual Set-up
 
-- Install PostgreSQL
-
-```bash
-  npm install
-```
 - creating a virtual environment for flask
 ```bash
     python3 -m venv .venv
@@ -88,6 +83,13 @@ CREATE USER hospital_user WITH PASSWORD 'hospital_pass';
 GRANT ALL PRIVILEGES ON DATABASE hospital_db TO hospital_user;
 \q
 ```
+- Access database
+```bash
+    psql -U admin -d hospital
+```
+Then you enter the admin password : 
+##### melvis123
+
 - Install Python Dependencies
 
 ```bash

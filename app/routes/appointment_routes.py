@@ -1,6 +1,6 @@
 from flask import Blueprint, request, jsonify, abort
 from app.models.appointment import Appointment
-from app import db
+from app.extensions import db
 from datetime import datetime
 
 appointment_bp = Blueprint('appointments', __name__)

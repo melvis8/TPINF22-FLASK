@@ -1,6 +1,6 @@
 from flask import Blueprint, request, jsonify, abort
 from app.models.diagnosis import Diagnosis
-from app import db
+from app.extensions import db
 
 diagnosis_bp = Blueprint('diagnoses', __name__)
 

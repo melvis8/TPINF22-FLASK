@@ -1,6 +1,6 @@
 from flask import Flask
-from flask_sqlalchemy import SQLAlchemy
-from flask_migrate import Migrate
+from .extensions import db, migrate
+from flask_migrate import Migrate 
 from dotenv import load_dotenv
 import os
 import google.generativeai as genai
@@ -9,14 +9,13 @@ import google.generativeai as genai
 load_dotenv()
 
 # Initialisation directe ici
-db = SQLAlchemy()
 migrate = Migrate()
 
 def create_app():
     app = Flask(__name__)
 
     # Configuration de base
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://admin:melvis123@localhost:5432/hospital_db'
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://admin:melvis123@localhost:5432/hospital'
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
     app.config['SECRET_KEY'] = "b3BlbnNzaC1rZXktdjEAAAAABG5vbmUAAAAEbm9uZQAAAAAAAAABAAAAMwAAAAtzc2gtZWQyNTUxOQAAACBIuQNrZ8/MqLGjk1JMx8CW2s0itbKJMQYlNxvfgAaO5QAAALDv/IlC7/yJQgAAAAtzc2gtZWQyNTUxOQAAACBIuQNrZ8/MqLGjk1JMx8CW2s0itbKJMQYlNxvfgAaO5QAAAEB9WPK5UfqOdQx+yGstOQCd1gSFIdDXMoj20CX7TOwU9Ei5A2tnz8yosaOTUkzHwJbazSK1sokxBiU3G9+ABo7lAAAAJm1lbHZpcy1kZXZAbWVsdmlzLWRldi1IUC1FTlZZLU5vdG"
     app.config['DEBUG'] = True
@@ -24,6 +23,13 @@ def create_app():
     # Initialisation des extensions
     db.init_app(app)
     migrate.init_app(app, db)
+
+     # Importer les modèles ici (exemple avec Doctor et Patient)
+    from app.models.doctor import Doctor
+    from app.models.patient import Patient
+    from app.models.appointment import Appointment
+    from app.models.diagnosis import Diagnosis
+    from app.models.prescription import Prescription
 
     # 🔐 Configuration Gemini
     gemini_api_key = os.getenv("GEMINI_API_KEY")
