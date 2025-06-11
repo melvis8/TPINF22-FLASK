@@ -134,92 +134,92 @@ flask db upgrade
 
 - List all patients
  ```http 
-  GET /health
+  GET http://localhost:5000/patients
 ```  
 - Create new patient
  ```http 
- POST /api/patients
+ POST http://localhost:5000/patients
 ```  
 - Get patient by ID
  ```http 
-  GET /api/patients/{id}
+  GET http://localhost:5000/patients{id}
 ```  
 - Update patient
  ```http 
- PUT /api/patients/{id} 
+ PUT http://localhost:5000/patients/{id} 
 ```  
 
 ### Doctors
 
 - List all doctors
  ```http 
-  GET /api/doctors
+  GET http://localhost:5000/doctors
 ```  
 - Create new doctor
  ```http 
- POST /api/doctors
+ POST http://localhost:5000/doctors
 ```  
 - Get doctor by ID
  ```http 
-  GET /api/doctors/{id}
+  GET http://localhost:5000/doctors/{id}
 ```  
 - Update doctor
  ```http 
- PUT /api/doctors/{id} 
+ PUT http://localhost:5000/doctors/{id} 
 ```  
 
 ### Diagnosis
 
 -  List all diagnoses
  ```http 
-  GET /api/diagnosis
+  GET http://localhost:5000/diagnosis
 ```  
 - Create diagnosis with AI prediction
  ```http 
- POST /api/diagnosis
+ POST http://localhost:5000/diagnosis
 ```  
 - Get specific diagnosis
  ```http 
-  GET /api/diagnosis/{id}
+  GET http://localhost:5000/diagnosis/{id}
 ```  
 - Update diagnosis
  ```http 
- PUT /api/diagnosis/{id}
+ PUT http://localhost:5000/diagnosis/{id}
 ```
 -  Delete diagnosis
  ```http 
- DELETE /api/diagnosis/{id}
+ DELETE http://localhost:5000/diagnosis/{id}
 ```
-- Predict disease from symptoms
+- Prescription
  ```http 
- POST /api/predict-disease
+ POST http://localhost:5000/prescription
 ```
-- Get patient's diagnosis history
+- Get prescription
  ```http 
- GET /api/diagnosis/patient/{patient_id}
+ GET http://localhost:5000/prescription/
 ```
-- Get doctor's diagnosis records
+- Change prescription
  ```http 
- GET /api/diagnosis/doctor/{doctor_id}
+ PUT http://localhost:5000/prescription
 ```
 
  ### Appointments
 
 - List all appointments
  ```http 
-  GET /api/appointments
+  GET http://localhost:5000/appointments
 ```  
 - Create new appointment
  ```http 
- POST /api/appointments
+ POST /http://localhost:5000/appointments
 ```  
 - Get appointment by ID
  ```http 
-  GET /api/dappointment/{id}
+  GET http://localhost:5000/appointments/{id}
 ```  
 - Update appointment
  ```http 
- PUT /api/appointments/{id} 
+ PUT http://localhost:5000/appointments/{id} 
 ```
  ## AI Disease Prediction
  The system includes a machine learning model that predicts diseases based on patient symptoms.
